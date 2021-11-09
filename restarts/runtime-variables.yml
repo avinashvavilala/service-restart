@@ -6,7 +6,7 @@
 
     - name: Start service httpd, if not started
       ansible.builtin.service:
-        name: {{ servicename }}
+        name: "{{ servicename }}"
         state: started
     - name: Get timestamp from the system
       shell: "date +%Y-%m-%d%H-%M-%S"
@@ -34,6 +34,6 @@
         msg:  "Current date & time: {{ cur_date }} T {{ cur_time }}"
     - name: Stop service httpd, if started
       ansible.builtin.service:
-        name: {{ servicename }}
+        name: "{{ servicename }}"
         state: stopped
 
