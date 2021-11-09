@@ -8,6 +8,9 @@
       yum: 
         name: httpd
         state: present
+    - 
+      name: to print succes log message
+      debug:
         msg: httpd service started succesfully 
     - name: Ansible fact - ansible_date_time.iso8601
       debug:
