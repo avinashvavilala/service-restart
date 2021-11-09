@@ -42,3 +42,8 @@
       debug:
         msg:  "Current date & time: {{ cur_date }} T {{ cur_time }}"
 
+    - name: Stop service httpd, if started
+      ansible.builtin.service:
+        name: httpd
+        state: stopped
+
