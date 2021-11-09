@@ -1,0 +1,20 @@
+---
+- 
+  firewalld: 
+    permanent: true
+    service: httpd
+    state: enabled
+  name: "Open port 80 for http access"
+- 
+  name: "Restart the firewalld ervice to load in the firewall change"
+  service: 
+    name: firewalld
+    state: restarted
+
+
+
+
+
+
+
+
