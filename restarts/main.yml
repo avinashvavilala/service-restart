@@ -19,18 +19,13 @@
       set_fact:
         cur_date: "{{ tstamp.stdout[0:10]}}"
         cur_time: "{{ tstamp.stdout[10:]}}"
-    - name: System timestamp - date
+    - name: System timestamp - date & time
       debug:
-        msg:  "Current date & time: {{ cur_date }} {{ cur_time }}"
-        
-    - name: Ansible fact - ansible_date_time.iso8601
-      debug:
-        msg: "Timestamp in the ISO8601 format: {{ ansible_date_time.iso8601 }}"
+        msg:  "Current date & time: {{ cur_date }} T {{ cur_time }}"
     - name: Output customized message after 90 seconds
       wait_for:
         timeout: 90
         msg: Timedout for 90 seconds
-    
     - name: Get timestamp from the system
       shell: "date +%Y-%m-%d%H-%M-%S"
       register: tstamp
@@ -38,15 +33,7 @@
       set_fact:
         cur_date: "{{ tstamp.stdout[0:10]}}"
         cur_time: "{{ tstamp.stdout[10:]}}"
-    - name: System timestamp - date
+    - name: System timestamp - date & time
       debug:
-        msg:  "Current date: {{ cur_date }}"
-
-    - name: System timestamp - time
-      debug:
-        msg:  "Current time: {{ cur_time }}"
-
-    - name: Ansible fact - ansible_date_time.iso8601
-      debug:
-        msg: "Timestamp in the ISO8601 format: {{ ansible_date_time.iso8601 }}"
+        msg:  "Current date & time: {{ cur_date }} T {{ cur_time }}"
 
