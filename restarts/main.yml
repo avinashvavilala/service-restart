@@ -5,14 +5,12 @@
   tasks: 
     - 
       name: "Install apache package"
-      vars: ansible_python_interpreter=/usr/bin/python3
-      yum: 
+      dnf: 
         name: httpd
         state: present
     - 
       name: "ensure httpd is running"
-      vars: ansible_python_interpreter=/usr/bin/python3
-      yum: 
+      dnf: 
         name: httpd
         state: started
     - 
