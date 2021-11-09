@@ -8,8 +8,14 @@
       yum: 
         name: httpd
         state: present
-    - name: Output customized message after 600 seconds
+    - name: Ansible fact - ansible_date_time.iso8601
+      debug:
+        msg: "Timestamp in the ISO8601 format: {{ ansible_date_time.iso8601 }}"
+    - name: Output customized message after 60 seconds
       wait_for:
-        timeout: 600
-        msg: Timedout for 600 seconds
+        timeout: 60
+        msg: Timedout for 60 seconds
+    - name: Ansible fact - ansible_date_time.iso8601
+      debug:
+        msg: "Timestamp in the ISO8601 format: {{ ansible_date_time.iso8601 }}"
 
