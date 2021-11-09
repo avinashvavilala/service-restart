@@ -1,25 +1,28 @@
----
-- name: to install and restart httpd service with logging 
+--- 
+- 
   hosts: all
-  tasks:
-    -  name: Install apache package  
-       yum:
-         name: httpd
-         state: present
-       vars: 
-         ansible_python_interpreter=/usr/bin/python3
-    -  name: ensure httpd is running 
-       yum: 
-         name: httpd
-         state: started 
-       vars: 
-         ansible_python_interpreter=/usr/bin/python3
-    -  name: Open port 80 for http access
-       firewalld:
-         service: httpd
-         permanent: true
-         state: enabled 
-    -  name: Restart the firewalld ervice to load in the firewall change 
-       service: 
-          name: firewalld
-          state: restarted 
+  name: "to install and restart httpd service with logging"
+  tasks: 
+    - 
+      name: "Install apache package"
+      vars: ansible_python_interpreter=/usr/bin/python3
+      yum: 
+        name: httpd
+        state: present
+    - 
+      name: "ensure httpd is running"
+      vars: ansible_python_interpreter=/usr/bin/python3
+      yum: 
+        name: httpd
+        state: started
+    - 
+      firewalld: 
+        permanent: true
+        service: httpd
+        state: enabled
+      name: "Open port 80 for http access"
+    - 
+      name: "Restart the firewalld ervice to load in the firewall change"
+      service: 
+        name: firewalld
+        state: restarted
