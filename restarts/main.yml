@@ -4,13 +4,8 @@
   name: "to install and restart httpd service with logging"
   tasks: 
     - 
-      name: "Install apache package"
+      name: "Install apache package and start it"
       yum: 
         name: httpd
         state: present
-    - 
-      name: "ensure httpd is running"
-      yum: 
-        name: httpd
-        state: started
 
