@@ -21,8 +21,7 @@
         cur_time: "{{ tstamp.stdout[10:]}}"
     - name: System timestamp - date
       debug:
-        msg:  "Current date: {{ cur_date }}"
-        msg:  "Current time: {{ cur_time }}"
+        msg:  "Current date & time: {{ cur_date }} {{ cur_time }}"
         
     - name: Ansible fact - ansible_date_time.iso8601
       debug:
