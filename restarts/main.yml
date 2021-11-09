@@ -1,6 +1,21 @@
 ---
-- hosts: all
+- name: to install and restart httpd service with logging 
+  hosts: all
   tasks:
-    -  name: print message 
-       debug:
-         msg: Hello Ansible World 
+    -  name: Install apache package  
+       yum:
+         name: httpd
+         state: present
+    -  name: ensure httpd is running 
+       yum: 
+         name: httpd
+         state: started 
+    -  name: Open port 80 for http access
+       firewalld:
+         service: httpd
+         permanent: true
+         state: enabled 
+    -  name: Restart the firewalld ervice to load in the firewall change 
+       service: 
+          name: firewalld
+          state: restarted 
