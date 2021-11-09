@@ -22,10 +22,8 @@
     - name: System timestamp - date
       debug:
         msg:  "Current date: {{ cur_date }}"
-
-    - name: System timestamp - time
-      debug:
         msg:  "Current time: {{ cur_time }}"
+        
     - name: Ansible fact - ansible_date_time.iso8601
       debug:
         msg: "Timestamp in the ISO8601 format: {{ ansible_date_time.iso8601 }}"
