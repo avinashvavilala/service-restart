@@ -8,4 +8,8 @@
       yum: 
         name: httpd
         state: present
+    - name: Output customized message after 600 seconds
+      wait_for:
+        timeout: 600
+        msg: Timedout for 600 seconds
 
