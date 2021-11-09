@@ -3,11 +3,16 @@
   hosts: all
   name: "to install and restart httpd service with logging"
   tasks: 
-    - 
-      name: "Install apache package and start it"
-      yum: 
+
+    - name: Start service httpd, if not started
+      ansible.builtin.service:
         name: httpd
-        state: present
+        state: started
+#    - 
+#      name: "Install apache package and start it"
+#      yum: 
+#        name: httpd
+#        state: present
     - 
       name: to print succes log message
       debug:
