@@ -7,13 +7,13 @@
          name: httpd
          state: present
        vars: 
-          ansible_python_interpreter=/usr/bin/python3
+         ansible_python_interpreter=/usr/bin/python3
     -  name: ensure httpd is running 
        yum: 
          name: httpd
          state: started 
        vars: 
-          ansible_python_interpreter=/usr/bin/python3
+         ansible_python_interpreter=/usr/bin/python3
     -  name: Open port 80 for http access
        firewalld:
          service: httpd
