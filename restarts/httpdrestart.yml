@@ -22,6 +22,13 @@
       wait_for:
         timeout: 90
         msg: Timedout for 90 seconds
+    - name: Get timestamp from the system
+      shell: "date +%Y-%m-%d%H-%M-%S"
+      register: tstamp
+    - name: Set variables
+      set_fact:
+        cur_date: "{{ tstamp.stdout[0:10]}}"
+        cur_time: "{{ tstamp.stdout[10:]}}"
     - name: System timestamp - date & time
       debug:
         msg:  "Current date & time: {{ cur_date }} T {{ cur_time }}"
